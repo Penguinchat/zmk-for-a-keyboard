@@ -1,2 +1,51 @@
-# Copyright (c) 2022-2023 XiNGRZ
-# SPDX-License-Identifier: MIT
+# LED Strip Remapping Driver Configuration
+menuconfig LED_STRIP_REMAP
+    bool "LED Strip Remapping Driver"
+    depends on LED_STRIP
+    default y
+    help
+      Enable dynamic remapping and layered rendering for addressable LED strips (e.g., WS2812).
+      Supports priority-based rendering (base layer → indicators → layer indicators) [1,2](@ref).
+
+if LED_STRIP_REMAP
+
+config LED_STRIP_REMAP_CHAIN_LENGTH
+    int "Logical LED chain length"
+    range 1 256
+    default 10
+    help
+      Number of virtual LEDs in the remapping chain.
+      Must match the value defined in the device tree [2,3](@ref).
+
+config LED_STRIP_REMAP_MAX_LAYERS
+    int "Maximum layer indicator groups"
+    range 1 8
+    default 3
+    help
+      Maximum number of independent layer indicator groups (e.g., for keyboard layers).
+      Each group requires 4 pre-defined colors (RGB for layers 0-3) [5](@ref).
+
+config LED_STRIP_REMAP_INDICATOR_PRIORITY
+    bool "Enable indicator priority override"
+    default y
+    help
+      Allow layer indicators to override base/indicator colors (highest priority).
+      Disable this to reduce rendering overhead [1,7](@ref).
+
+config LED_STRIP_REMAP_DYNAMIC_MAP
+    bool "Support runtime remapping table"
+    depends on !SMP
+    default n
+    help
+      Enable dynamic remapping table updates at runtime.
+      Note: Requires exclusive access to avoid concurrency issues [2,6](@ref).
+
+config LED_STRIP_REMAP_DEBUG
+    bool "Enable debug logs"
+    default n
+    depends on LOG
+    help
+      Enable verbose debugging output for rendering pipeline.
+      Increases flash usage and reduces performance [4,5](@ref).
+
+endif  # LED_STRIP_REMAP
