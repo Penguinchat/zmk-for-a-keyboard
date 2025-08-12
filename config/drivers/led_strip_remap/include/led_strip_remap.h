@@ -28,3 +28,4 @@ int led_strip_remap_disable(const struct device *dev, const char *label);
 #ifdef __cplusplus
 }
 #endif
+int led_strip_remap_set_layer(const struct device *dev, const char *label, uint8_t layer);
