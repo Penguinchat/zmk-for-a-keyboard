@@ -24,8 +24,8 @@ child-binding:
   properties:
     label:
       type: string
-      deprecated: true
-    led-indexes:
+      required: true
+    led_indexes:
       type: array
       required: true
       description: The indexes of the LEDs in the subset.
