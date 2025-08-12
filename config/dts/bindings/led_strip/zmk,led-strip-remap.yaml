@@ -11,7 +11,7 @@ properties:
     type: int
     required: true
     description: The number of LEDs in the strip.
-  led-strip:
+  led_strip:
     type: phandle
     required: true
   map:
