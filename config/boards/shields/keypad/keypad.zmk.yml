@@ -1,0 +1,11 @@
+file_format: "1"
+id: keypad
+name: keypad
+type: shield
+url:
+requires:
+  - pro_micro
+exposes:
+features:
+  - keys
+  - rgb
