@@ -6,7 +6,7 @@
 #define DT_DRV_COMPAT zmk_led_strip_remap
 
 #include <zephyr/drivers/led_strip.h>
-#include <zephyr/drivers/led_strip_remap.h>
+#include <led_strip_remap.h>
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/logging/log.h>
