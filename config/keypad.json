@@ -44,7 +44,7 @@
       "compatible": "alps,ec11",
       "label": "TWO_ENCODER",
       "enabled": false
-    }
+    },
         {
       "ref": "three_encoder",
       "name": "encoder_three",
