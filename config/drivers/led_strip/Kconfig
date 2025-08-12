@@ -1,5 +1,10 @@
+config LED_STRIP_REMAP
+    bool "LED Strip Remapping Support"
+    default y
+    help
+      Enable LED strip remapping and layer indicators
 
-# Copyright (c) 2022-2023 XiNGRZ
-# SPDX-License-Identifier: MIT
-
-rsource "Kconfig.remap"
+config ZMK_LED_INDICATORS
+    bool "ZMK LED Indicators"
+    default y
+    depends on LED_STRIP_REMAP
