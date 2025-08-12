@@ -11,19 +11,6 @@
 #include <zephyr/device.h>
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
-
-
-
-
-DEVICE_DT_DEFINE(DT_NODELABEL(led_strip), // 节点标签
-                led_strip_remap_init,
-                NULL, NULL, NULL,
-                POST_KERNEL, CONFIG_LED_STRIP_INIT_PRIORITY,
-                NULL);
-
-
-
-
 /* 颜色转换宏（32位RGB转结构体）*/
 #define RGB_FROM_UINT32(val) \
     { .r = (uint8_t)((val) >> 16), .g = (uint8_t)((val) >> 8), .b = (uint8_t)(val) }
