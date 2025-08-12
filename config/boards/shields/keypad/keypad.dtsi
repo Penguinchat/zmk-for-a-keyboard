@@ -146,6 +146,7 @@
         
 
 	layer_indicator: layer_indicator {
+		label = "LAYER_INDICATOR";
     	led-indexes = <16>;
     		colors = <
         		0xFF0000   // 层0: 红
