@@ -162,7 +162,6 @@
     behaviors {
         disable_layer_led: disable_layer_led {
             compatible = "zmk,behavior-custom";
-            label = "DISABLE_LAYER_LED";
             #binding-cells = <0>;
         };
     };
