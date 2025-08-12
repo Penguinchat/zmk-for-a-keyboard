@@ -136,7 +136,7 @@
 	};
 };
 / {
-    led_remap: led_strip_remap@0 {
+    led_remap: led_strip_remap {
         compatible = "zmk,led-strip-remap";
         chain-length = <17>; // 必须与物理LED数量一致
         led_strip = <&led_strip>;
