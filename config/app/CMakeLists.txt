@@ -8,3 +8,4 @@ target_include_directories(app PRIVATE
     ${ZEPHYR_BASE}/drivers/led_strip
     ${ZEPHYR_BASE}/drivers/led_strip_remap
 )
+include($ENV{ZEPHYR_BASE}/../drivers/led_strip_remap/Kconfig)
