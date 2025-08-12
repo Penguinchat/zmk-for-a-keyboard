@@ -3,7 +3,6 @@ zephyr_library()
 
 # 添加LED灯带驱动核心源文件
 zephyr_library_sources(
-    led_strip.c
     led_strip_remap.c
 )
 
