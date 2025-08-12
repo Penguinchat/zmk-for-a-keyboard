@@ -34,6 +34,3 @@ child-binding:
       required: true
       description: Layer colors in 32-bit RGB format (0xRRGGBB).
 
-  required:      # 强制要求子节点必须包含的属性
-    - led-indexes
-    - colors
