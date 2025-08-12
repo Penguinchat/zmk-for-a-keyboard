@@ -3,7 +3,7 @@
   "name": "Keypad",
   "layouts": {
     "default_transform": {
-      "name": "default_transform"
+      "name": "default_transform",
       "layout": [
         { "x": 0.0, "y": 0.0 },
         { "x": 1.0, "y": 0.0 },
