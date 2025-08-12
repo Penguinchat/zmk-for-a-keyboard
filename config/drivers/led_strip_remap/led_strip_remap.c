@@ -28,7 +28,11 @@ struct layer_led_state {
     uint8_t current_layer;
     bool active;
 };
-
+/* 指示器状态结构 */
+struct led_strip_remap_indicator_state {
+    struct led_rgb color;
+    bool active;
+};
 /* 设备数据结构 */
 struct led_strip_remap_data {
     struct led_rgb *pixels;
@@ -167,7 +171,25 @@ static int led_strip_remap_init(const struct device *dev) {
 #define LED_STRIP_REMAP_INIT(n)                                                 \
     static struct led_rgb pixels_##n[DT_INST_PROP_LEN(n, map)];                 \
     static struct led_rgb output_##n[DT_INST_PROP_LEN(n, map)];                 \
+    /* 新增指示器状态数组初始化 */                                                \
+    static struct led_strip_remap_indicator_state indicators_state_##n[         \
+        DT_INST_PROP_LEN(n, indicators)];                                       \
                                                                                 \
+    DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_INDEXES, n)                        \
+                                                                                \
+    static const struct layer_led_config layer_leds_cfg_##n[] = {               \
+        DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_CONFIG, n)                    \
+    };                                                                          \
+                                                                                \
+    static struct layer_led_state layer_leds_state_##n[                        \
+        ARRAY_SIZE(layer_leds_cfg_##n)];                                        \
+                                                                                \
+    static struct led_strip_remap_data data_##n = {                             \
+        .pixels = pixels_##n,                                                  \
+        .output = output_##n,                                                  \
+        .indicators = indicators_state_##n,  /* 关联指示器状态数组 */              \
+        .layer_leds = layer_leds_state_##n,                                     \
+    };                                                                                    \
     DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_INDEXES, n)                        \
                                                                                 \
     static const struct layer_led_config layer_leds_cfg_##n[] = {               \
