@@ -24,7 +24,7 @@ child-binding:
   properties:
     label:
       type: string
-      deprected: true
+      deprecated: true
     led_indexes:
       type: array
       required: true
