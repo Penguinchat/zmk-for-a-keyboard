@@ -1,10 +1,10 @@
-# Copyright (c) 2022-2023 XiNGRZ
-# SPDX-License-Identifier: MIT
-# 在驱动Kconfig文件中添加
 config LED_STRIP_REMAP
-    bool "LED Strip Remapping"
+    bool "LED Strip Remapping Support"
     default y
+    help
+      Enable LED strip remapping and layer indicators
 
 config ZMK_LED_INDICATORS
-    bool "LED Indicators Support"
+    bool "ZMK LED Indicators"
     default y
+    depends on LED_STRIP_REMAP
