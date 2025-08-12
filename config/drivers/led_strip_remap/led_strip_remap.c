@@ -14,10 +14,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #define DT_DRV_COMPAT worldsemi_ws2812_spi // 与设备树compatible匹配
 
-static int led_strip_remap_init(const struct device *dev) {
-    // 初始化代码
-    return 0;
-}
+
 
 DEVICE_DT_DEFINE(DT_NODELABEL(led_strip), // 节点标签
                 led_strip_remap_init,
