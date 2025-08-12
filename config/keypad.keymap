@@ -22,7 +22,7 @@
         compatible = "zmk,combos";
 
         tolayer3 {
-            bindings = <&mo 0>;
+            bindings = <&mo 3>;
             key-positions = <4 9>;
         };
     };
@@ -32,7 +32,11 @@
 
         layer_0 {
             bindings = <
-&kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp STAR  &mo 0  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS  &mo 0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS  &kp KP_NUMBER_0  &kp KP_DOT  &ext_power EP_TOG  &kp KP_ENTER  &kp C_MUTE  &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
+&kp KP_NUMBER_7  &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp STAR      &mo 1
+&kp KP_NUMBER_4  &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp MINUS     &mo 2
+&kp KP_NUMBER_1  &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp PLUS
+&kp KP_NUMBER_0  &kp KP_DOT        &ext_power EP_TOG  &kp KP_ENTER
+&kp C_MUTE       &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
             >;
 
             label = "Layer0";
@@ -40,9 +44,13 @@
         };
 
         layer_1 {
-            label = "Layer0";
+            label = "Layer1";
             bindings = <
-&kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp STAR  &mo 0  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS  &mo 0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS  &kp KP_NUMBER_0  &kp KP_DOT  &ext_power EP_TOG  &kp KP_ENTER  &kp C_MUTE  &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
+&kp KP_NUMBER_7  &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp STAR      &mo 1
+&kp KP_NUMBER_4  &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp MINUS     &mo 2
+&kp KP_NUMBER_1  &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp PLUS
+&kp KP_NUMBER_0  &kp KP_DOT        &ext_power EP_TOG  &kp KP_ENTER
+&kp C_MUTE       &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
             >;
 
             sensor-bindings =
@@ -52,9 +60,13 @@
         };
 
         layer_2 {
-            label = "Layer0";
+            label = "Layer2";
             bindings = <
-&kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp STAR  &mo 0  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS  &mo 0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS  &kp KP_NUMBER_0  &kp KP_DOT  &ext_power EP_TOG  &kp KP_ENTER  &kp C_MUTE  &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
+&kp KP_NUMBER_7  &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp STAR      &mo 1
+&kp KP_NUMBER_4  &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp MINUS     &mo 2
+&kp KP_NUMBER_1  &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp PLUS
+&kp KP_NUMBER_0  &kp KP_DOT        &ext_power EP_TOG  &kp KP_ENTER
+&kp C_MUTE       &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
             >;
 
             sensor-bindings =
@@ -64,9 +76,13 @@
         };
 
         layer_3 {
-            label = "Layer0";
+            label = "Layer3";
             bindings = <
-&kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp STAR  &mo 0  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp MINUS  &mo 0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PLUS  &kp KP_NUMBER_0  &kp KP_DOT  &ext_power EP_TOG  &kp KP_ENTER  &kp C_MUTE  &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
+&kp KP_NUMBER_7  &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp STAR      &mo 1
+&kp KP_NUMBER_4  &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp MINUS     &mo 2
+&kp KP_NUMBER_1  &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp PLUS
+&kp KP_NUMBER_0  &kp KP_DOT        &ext_power EP_TOG  &kp KP_ENTER
+&kp C_MUTE       &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
             >;
 
             sensor-bindings =
