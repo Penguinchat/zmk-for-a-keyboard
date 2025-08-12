@@ -12,7 +12,6 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-#define DT_DRV_COMPAT worldsemi_ws2812_spi // 与设备树compatible匹配
 
 
 
@@ -178,38 +177,40 @@ static int led_strip_remap_init(const struct device *dev) {
 #define LAYER_LED_INDEXES(node_id, n)                                          \
     static uint32_t layer_led_indexes_##n[] = DT_PROP(node_id, led_indexes);
 
-/* 设备实例化 */
 #define LED_STRIP_REMAP_INIT(n)                                                 \
     static struct led_rgb pixels_##n[DT_INST_PROP_LEN(n, map)];                 \
-    static struct led_rgb output_##n[DT_INST_PROP_LEN(n, map)];                \
+    static struct led_rgb output_##n[DT_INST_PROP_LEN(n, map)];                 \
                                                                                 \
     DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_INDEXES, n)                        \
                                                                                 \
     static const struct layer_led_config layer_leds_cfg_##n[] = {               \
-        DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_CONFIG, n)                    \
+        DT_INST_FOREACH_CHILD_VARGS(n, LAYER_LED_CONFIG, n)                     \
     };                                                                          \
                                                                                 \
     static struct layer_led_state layer_leds_state_##n[                        \
         ARRAY_SIZE(layer_leds_cfg_##n)];                                        \
                                                                                 \
     static struct led_strip_remap_data data_##n = {                             \
-        .pixels = pixels_##n,                                                  \
-        .output = output_##n,                                                  \
+        .pixels = pixels_##n,                                                   \
+        .output = output_##n,                                                   \
         .layer_leds = layer_leds_state_##n,                                     \
+        .indicators = NULL,  /* 初始化普通指示器为NULL（暂不使用） */           \
     };                                                                          \
                                                                                 \
     static const struct led_strip_remap_config cfg_##n = {                      \
-        .chain_length = DT_INST_PROP(n, chain_length),                         \
+        .chain_length = DT_INST_PROP(n, chain_length),                          \
         .led_strip = DEVICE_DT_GET(DT_INST_PHANDLE(n, led_strip)),              \
         .led_strip_len = DT_PROP(DT_INST_PHANDLE(n, led_strip), chain_length),  \
-        .map = DT_INST_PROP(n, map),                                            \
+        .map = DT_INST_PROP(n, map),                                             \
         .map_len = DT_INST_PROP_LEN(n, map),                                    \
-        .layer_leds = layer_leds_cfg_##n,                                      \
-        .layer_led_cnt = ARRAY_SIZE(layer_leds_cfg_##n),                       \
+        .layer_leds = layer_leds_cfg_##n,                                       \
+        .layer_led_cnt = ARRAY_SIZE(layer_leds_cfg_##n),                        \
+        .indicators = NULL,  /* 普通指示器配置为NULL */                         \
+        .indicator_cnt = 0,  /* 普通指示器数量为0 */                            \
     };                                                                          \
                                                                                 \
-    DEVICE_DT_INST_DEFINE(n, led_strip_remap_init, NULL, &data_##n, &cfg_##n,  \
+    DEVICE_DT_INST_DEFINE(n, led_strip_remap_init, NULL, &data_##n, &cfg_##n,   \
                           POST_KERNEL, CONFIG_LED_STRIP_INIT_PRIORITY,          \
-                          &led_strip_remap_api);
+                          NULL);  /* 暂时不需要API结构体，先设为NULL */
 
 DT_INST_FOREACH_STATUS_OKAY(LED_STRIP_REMAP_INIT)
