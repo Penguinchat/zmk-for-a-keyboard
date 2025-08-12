@@ -123,6 +123,23 @@ int led_strip_remap_set_layer(const struct device *dev, const char *label, uint8
     return led_strip_remap_apply(dev);
 }
 
+/* 禁用层指示器 */
+int led_strip_remap_disable_layer(const struct device *dev, const char *label) {
+    struct led_strip_remap_data *data = dev->data;
+    const struct led_strip_remap_config *config = dev->config;
+    k_mutex_lock(&data->lock, K_FOREVER);
+    
+    for (uint32_t i = 0; i < config->layer_led_cnt; i++) {
+        if (strcmp(config->layer_leds[i].label, label) == 0) {
+            data->layer_leds[i].active = false; // 禁用该层指示器
+            break;
+        }
+    }
+    
+    k_mutex_unlock(&data->lock);
+    return led_strip_remap_apply(dev); // 重新渲染
+}
+
 /* 初始化函数 */
 static int led_strip_remap_init(const struct device *dev) {
     struct led_strip_remap_data *data = dev->data;
