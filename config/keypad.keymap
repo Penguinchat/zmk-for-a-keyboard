@@ -35,7 +35,7 @@
 &kp KP_NUMBER_7  &kp KP_NUMBER_8   &kp KP_NUMBER_9    &kp STAR      &mo 1
 &kp KP_NUMBER_4  &kp KP_NUMBER_5   &kp KP_NUMBER_6    &kp MINUS     &mo 2
 &kp KP_NUMBER_1  &kp KP_NUMBER_2   &kp KP_NUMBER_3    &kp PLUS
-&kp KP_NUMBER_0  &disable_layer_led        &ext_power EP_TOG  &kp KP_ENTER
+&kp KP_NUMBER_0  &kp KP_DOT       &ext_power EP_TOG  &kp KP_ENTER
 &kp C_MUTE       &kp K_PLAY_PAUSE  &rgb_ug RGB_TOG
             >;
 
