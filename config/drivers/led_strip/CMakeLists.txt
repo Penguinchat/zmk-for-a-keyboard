@@ -1,6 +1,8 @@
-# Copyright (c) 2022-2023 XiNGRZ
 # SPDX-License-Identifier: MIT
+cmake_minimum_required(VERSION 3.20.0)
 
-zephyr_library_sources_ifdef(CONFIG_LED_STRIP_REMAP led_strip_remap.c)
+find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+project(led_strip_remap)
 
-zephyr_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_sources(app PRIVATE src/led_strip_remap.c)
+target_include_directories(app PRIVATE src)
