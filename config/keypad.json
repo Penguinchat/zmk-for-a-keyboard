@@ -2,6 +2,7 @@
   "id": "keypad",
   "layouts": {
     "default_transform": {
+      "name": "default_transform"
       "layout": [
         { "x": 0.0, "y": 0.0 },
         { "x": 1.0, "y": 0.0 },
@@ -24,9 +25,33 @@
         { "x": 0.0, "y": 4.0 },
         { "x": 1.0, "y": 4.0 },
         { "x": 2.0, "y": 4.0 }
-      ],
-      "name": "default_transform"
+      ]
     }
   },
-  "name": "Keypad"
+  "sensors": [
+    {
+      "ref": "one_encoder",
+      "name": "encoder_one",
+      "identifier": "encoder_one",
+      "compatible": "alps,ec11",
+      "label": "ONE_ENCODER",
+      "enabled": false
+    },
+    {
+      "ref": "two_encoder",
+      "name": "encoder_two",
+      "identifier": "encoder_two",
+      "compatible": "alps,ec11",
+      "label": "TWO_ENCODER",
+      "enabled": false
+    }
+        {
+      "ref": "three_encoder",
+      "name": "encoder_three",
+      "identifier": "encoder_three",
+      "compatible": "alps,ec11",
+      "label": "THREE_ENCODER",
+      "enabled": false
+    }
+  ]
 }
