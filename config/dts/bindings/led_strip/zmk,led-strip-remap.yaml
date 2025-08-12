@@ -1,8 +1,7 @@
 # SPDX-License-Identifier: MIT
 
 description: |
-  A virtual LED strip driver for reordering LEDs, with additional APIs for using
-  individual LEDs as custom indicators.
+  Virtual LED strip driver for reordering LEDs with custom indicator APIs.
 
 compatible: "zmk,led-strip-remap"
 
@@ -10,22 +9,31 @@ properties:
   chain-length:
     type: int
     required: true
-    description: The number of LEDs in the strip.
+    description: Total physical LEDs in the strip.
+
   led_strip:
     type: phandle
     required: true
+    description: Reference to the physical LED strip node.
+
   map:
     type: array
     required: true
-    description: The re-ordered index of LEDs.
+    description: LED remapping indices (e.g., [0, 2, 1]).
 
 child-binding:
-  description: Subset of LEDs to be use as indicators.
+  description: Configuration for LED indicators (e.g., layer indicators).
   properties:
-    label:
-      type: string
-      deprecated: true
-    led_indexes:
+    led-indexes:  # 使用连字符命名（绑定文件要求）
       type: array
       required: true
-      description: The indexes of the LEDs in the subset.
+      description: Physical LED indices for indicators.
+
+    colors:       # 新增颜色属性
+      type: array
+      required: true
+      description: Layer colors in 32-bit RGB format (0xRRGGBB).
+
+  required:      # 强制要求子节点必须包含的属性
+    - led-indexes
+    - colors
