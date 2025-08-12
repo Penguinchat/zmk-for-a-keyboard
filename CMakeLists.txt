@@ -1,1 +1,1 @@
-add_subdirectory(app/drivers)
+add_subdirectory(config/app/drivers)
