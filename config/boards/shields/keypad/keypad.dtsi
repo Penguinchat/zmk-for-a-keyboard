@@ -48,15 +48,34 @@
 
     };
 
-&sensors {
-    one_config {
-        triggers-per-rotation = <24>;
+    one_encoder: encoder_one {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
     };
-    two_config {
-        triggers-per-rotation = <24>;
+
+    two_encoder: encoder_two {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
     };
-	three_config {
-		triggers-per-rotation = <24>；
+
+    three_encoder: encoder_three {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&one_encoder &two_encoder &three_encoder>;
+        triggers-per-rotation = <20>;
 };
 
 
