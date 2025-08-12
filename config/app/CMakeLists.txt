@@ -1,6 +1,6 @@
 # 添加自定义行为源文件
 target_sources(app PRIVATE
-    src/behaviors/zmk_behavior_layer_led.c
+    behaviors/zmk_behavior_layer_led.c
 )
 
 # 包含LED驱动目录
