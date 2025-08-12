@@ -48,6 +48,18 @@
 
     };
 
+&sensors {
+    one_config {
+        triggers-per-rotation = <24>;
+    };
+    two_config {
+        triggers-per-rotation = <24>;
+    };
+	three_config {
+		triggers-per-rotation = <24>
+};
+
+
     ext-power {
         compatible = "zmk,ext-power-generic";
         label = "EXT_POWER";
