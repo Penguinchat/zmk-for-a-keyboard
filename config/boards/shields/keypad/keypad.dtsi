@@ -157,11 +157,4 @@
 		};
     };
 };
-/ {
-    behaviors {
-        disable_layer_led: disable_layer_led {
-            compatible = "zmk,behavior-custom";
-            #binding-cells = <0>;
-        };
-    };
-};
+
