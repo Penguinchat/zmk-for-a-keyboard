@@ -24,10 +24,11 @@ properties:
 child-binding:
   description: Configuration for LED indicators (e.g., layer indicators).
   properties:
-      label:  # 新增 label 属性
+    label:  # 新增 label 属性
       type: string
       required: true
       description: Identifier label for the layer indicator (e.g., "LAYER_INDICATOR").
+      
     led-indexes:  # 使用连字符命名（绑定文件要求）
       type: array
       required: true
