@@ -145,17 +145,16 @@
         // 像素重映射表（根据键盘布局调整）
         map = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16>;
         
-        // 切层灯配置
-        layer_indicator: layer_indicator {
-            led_indexes = <16>; // 使用第3个物理LED作为层指示灯
-            
-            // 各层颜色配置（RGB格式）
-            layer_0_color = [FF 00 00]; // 红色
-            layer_1_color = [FF FF 00]; // 黄色
-            layer_2_color = [00 00 FF]; // 蓝色
-            layer_3_color = [00 FF 00]; // 绿色
-        };
-        
+
+	layer_indicator: layer_indicator {
+    	led-indexes = <16>;
+    		colors = <
+        		0xFF0000   // 层0: 红
+        		0x00FF00   // 层1: 绿
+        		0x0000FF   // 层2: 蓝
+        		0xFFFF00   // 层3: 黄
+    	>;
+		};
     };
 };
 / {
