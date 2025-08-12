@@ -139,7 +139,6 @@
 / {
     led_remap: led_remap {
         compatible = "zmk,led-strip-remap";
-        label = "LED_REMAP";
         chain-length = <17>; // 必须与物理LED数量一致
         led_strip = <&led_strip>;
         
@@ -148,7 +147,6 @@
         
         // 切层灯配置
         layer_indicator: layer_indicator {
-            label = "LAYER_INDICATOR";
             led_indexes = <16>; // 使用第3个物理LED作为层指示灯
             
             // 各层颜色配置（RGB格式）
