@@ -117,3 +117,41 @@
 		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
 	};
 };
+/ {
+    led_remap: led_remap {
+        compatible = "zmk,led-strip-remap";
+        label = "LED_REMAP";
+        chain-length = <12>; // 必须与物理LED数量一致
+        led_strip = <&led_strip>;
+        
+        // 像素重映射表（根据键盘布局调整）
+        map = <11 10 9 8 7 6 5 4 3 2 1 0>;
+        
+        // 切层灯配置
+        layer_indicator: layer_indicator {
+            label = "LAYER_INDICATOR";
+            led_indexes = <3>; // 使用第3个物理LED作为层指示灯
+            
+            // 各层颜色配置（RGB格式）
+            layer_0_color = [FF 00 00]; // 红色
+            layer_1_color = [FF FF 00]; // 黄色
+            layer_2_color = [00 00 FF]; // 蓝色
+            layer_3_color = [00 FF 00]; // 绿色
+        };
+        
+        // 可选：其他指示器（如大写锁定）
+        caps_lock_indicator: caps_lock_indicator {
+            label = "CAPS_LOCK";
+            led_indexes = <0>; // 使用第0个LED
+        };
+    };
+};
+/ {
+    behaviors {
+        disable_layer_led: disable_layer_led {
+            compatible = "zmk,behavior-custom";
+            label = "DISABLE_LAYER_LED";
+            #binding-cells = <0>;
+        };
+    };
+};
