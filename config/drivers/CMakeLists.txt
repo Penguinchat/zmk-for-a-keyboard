@@ -1,4 +1,4 @@
-# config/drivers/led_strip/CMakeLists.txt
+# config/drivers/led_strip_remap/CMakeLists.txt
 cmake_minimum_required(VERSION 3.20.0)
 
 ### 1. 声明驱动库目标
