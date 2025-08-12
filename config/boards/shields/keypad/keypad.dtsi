@@ -56,7 +56,7 @@
         triggers-per-rotation = <24>;
     };
 	three_config {
-		triggers-per-rotation = <24>
+		triggers-per-rotation = <24>；
 };
 
 
