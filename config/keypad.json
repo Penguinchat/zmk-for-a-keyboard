@@ -1,5 +1,6 @@
 {
   "id": "keypad",
+  "name": "Keypad",
   "layouts": {
     "default_transform": {
       "name": "default_transform"
